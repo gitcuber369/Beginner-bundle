@@ -49,12 +49,15 @@ function App() {
         ref={PasswordRef}
         className="w-full p-2 border border-gray-300 text-black rounded"
       />
+
+      <div className='flex justify-center'>
       <button
         onClick={copypasswordtoClipboard}
         className="mt-2 py-1 px-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
-      >
+        >
         Copy
       </button>
+        </div>
     </div>
     <div className="mb-4">
       <div className="flex items-center">

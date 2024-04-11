@@ -20,7 +20,7 @@ function Github() {
 
   return (
     
-    <div className='block text-center max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl" bg-gray-500/30'>
+    <div className='block text-center max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl" bg-gray-500/30 mt-10'>
       <div className=''>
       <form onSubmit={handleSearch}>
         <input
@@ -28,7 +28,7 @@ function Github() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Enter the name of the user"
-          className="text-center m-2 rounded-md border-b-2 border-transparent focus:border-white transition-colors duration-300 ease-in-out focus:outline-none bg-transparent text-white p-2"
+          className="text-center m-2 rounded border-b-2 border-transparent focus:border-white transition-colors duration-300 ease-in-out focus:outline-none bg-transparent text-white p-1"
         />
         <button type="submit" className="text-white ml-2">
           Search

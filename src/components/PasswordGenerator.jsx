@@ -38,50 +38,61 @@ function App() {
   }, [Password])
 
   return (
-    <>
-      <div >
-        <h1 >Password Generator</h1>
-      <div >
-        <input type="text" 
-        value = {Password}
-        placeholder='password'
+    <div className="max-w-lg mx-auto mt-10 p-6 bg-gray-500/30 rounded-lg shadow-lg text-white">
+    <h1 className="text-2xl text-center mb-4">Password Generator</h1>
+    <div className="mb-4">
+      <input
+        type="text"
+        value={Password}
+        placeholder="password"
         readOnly
         ref={PasswordRef}
+        className="w-full p-2 border border-gray-300 text-black rounded"
+      />
+      <button
+        onClick={copypasswordtoClipboard}
+        className="mt-2 py-1 px-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"
+      >
+        Copy
+      </button>
+    </div>
+    <div className="mb-4">
+      <div className="flex items-center">
+        <input
+          type="range"
+          min={8}
+          max={80}
+          value={length}
+          className="cursor-pointer flex-grow"
+          onChange={(e) => {
+            setLength(e.target.value);
+          }}
         />
-        <button onClick={copypasswordtoClipboard} >Copy</button>
+        <label className="ml-2">Length: {length}</label>
       </div>
-      <div >
-        <div>
-          <input type="range" min={8} max={80} value={length} className='cursor-pointer'
-          onChange={(e) => {setLength(e.target.value)}}
-          />
-          <label>Length:{length} </label>
-        </div>
-        <div>
-          <input 
-          type="checkbox"
-          defaultChecked={numberAllowed}
-          id='numberInput'
-          onChange={() => {
+    </div>
+    <div className="mb-4">
+      <div className="flex items-center justify-center gap-10 ">
+        <button
+          className={`mr-2 px-4 py-2 rounded ${numberAllowed ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'}`}
+          onClick={() => {
             setNumberAllowed((prev) => !prev);
           }}
-          />
-          <label htmlFor="numberInput">Numbers</label>
-        </div>
-        <div>
-          <input 
-          type="checkbox"
-          defaultChecked={charAllowed}
-          id='charInput'
-          onChange={() => {
+        >
+          Numbers
+        </button>
+        <button
+          className={`px-4 py-2 rounded ${charAllowed ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'}`}
+          onClick={() => {
             setcharAllowed((prev) => !prev);
           }}
-          />
-          <label htmlFor="charInput">Character</label>
-        </div>
-       </div>
+        >
+          Character
+        </button>
+      </div>
     </div>
-    </>   
+  </div>
+  
   )
 }
 
